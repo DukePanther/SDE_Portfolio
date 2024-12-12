@@ -182,95 +182,46 @@ export default class VillageMiddle extends Scene {
     } else {
       this.showEKey = false;
     }
+    // Lower left fence collisions
+    this.handleCollision(0, 530, 604, this.maxY, this.player.getPosX(), 604);
+    this.handleCollision(0, 536, 610, this.maxY, 536, this.player.getPosY());
 
-    //collision lowwer left fence
-    if (this.player.getPosY() >= 604 && this.player.getPosX() <= 530) {
-      this.player.spawnPos(this.player.getPosX(), 604);
-    }
-    if (this.player.getPosY() >= 610 && this.player.getPosX() <= 536) {
-      this.player.spawnPos(536, this.player.getPosY());
-    }
+    // Lower right fence collisions
+    this.handleCollision(710, this.maxX, 604, this.maxY, this.player.getPosX(), 604);
+    this.handleCollision(704, this.maxX, 610, this.maxY, 704, this.player.getPosY());
 
-    //collision lowwer left fence
-    if (this.player.getPosY() >= 604 && this.player.getPosX() >= 710) {
-      this.player.spawnPos(this.player.getPosX(), 604);
-    }
-    if (this.player.getPosY() >= 610 && this.player.getPosX() >= 704) {
-      this.player.spawnPos(704, this.player.getPosY());
-    }
+    // Left bush collision
+    this.handleCollision(0, 81, 0, this.maxY, 81, this.player.getPosY());
 
-    //left bush collision
-    if (this.player.getPosX() <= 81) {
-      this.player.spawnPos(81, this.player.getPosY());
-    }
+    // Left house collisions
+    this.handleCollision(0, 530, 0, 401, this.player.getPosX(), 401);
+    this.handleCollision(0, 536, 0, 395, 536, this.player.getPosY());
 
-    //left house collision
-    if (this.player.getPosY() <= 401 && this.player.getPosX() <= 530) {
-      this.player.spawnPos(this.player.getPosX(), 401);
-    }
-    if (this.player.getPosY() <= 395 && this.player.getPosX() <= 536) {
-      this.player.spawnPos(536, this.player.getPosY());
-    }
+    // Left house lower left fence collision
+    this.handleCollision(0, 210, 0, 461, this.player.getPosX(), 461);
+    this.handleCollision(0, 216, 0, 455, 216, this.player.getPosY());
 
-    //left house lowwer left fence collision
-    if (this.player.getPosY() <= 461 && this.player.getPosX() <= 210) {
-      this.player.spawnPos(this.player.getPosX(), 461);
-    }
-    if (this.player.getPosY() <= 455 && this.player.getPosX() <= 216) {
-      this.player.spawnPos(216, this.player.getPosY());
-    }
+    // Right house collisions
+    this.handleCollision(710, this.maxX, 0, 401, this.player.getPosX(), 401);
+    this.handleCollision(704, this.maxX, 0, 395, 704, this.player.getPosY());
 
-    //right house collision
-    if (this.player.getPosY() <= 401 && this.player.getPosX() >= 710) {
-      this.player.spawnPos(this.player.getPosX(), 401);
-    }
-    if (this.player.getPosY() <= 395 && this.player.getPosX() >= 704) {
-      this.player.spawnPos(704, this.player.getPosY());
-    }
+    // Right house right fence collision
+    this.handleCollision(1030, this.maxX, 0, 461, this.player.getPosX(), 461);
+    this.handleCollision(1024, this.maxX, 0, 455, 1024, this.player.getPosY());
 
-    //right house right fence collision
-    if (this.player.getPosY() <= 461 && this.player.getPosX() >= 1030) {
-      this.player.spawnPos(this.player.getPosX(), 461);
-    }
-    if (this.player.getPosY() <= 455 && this.player.getPosX() >= 1024) {
-      this.player.spawnPos(1024, this.player.getPosY());
-    }
+    // Right bush collision
+    this.handleCollision(1165, this.maxX, 0, 556, this.player.getPosX(), 556);
+    this.handleCollision(1159, this.maxX, 0, 550, 1159, this.player.getPosY());
 
-    //right bush
-    if (this.player.getPosY() <= 556 && this.player.getPosX() >= 1165) {
-      this.player.spawnPos(this.player.getPosX(), 556);
-    }
-    if (this.player.getPosY() <= 550 && this.player.getPosX() >= 1159) {
-      this.player.spawnPos(1159, this.player.getPosY());
-    }
+    // Left house right fence collision
+    this.handleCollision(310, 530, 0, 461, this.player.getPosX(), 461);
+    this.handleCollision(304, 400, 0, 455, 304, this.player.getPosY());
+    this.handleCollision(401, 536, 0, 455, 536, this.player.getPosY());
 
-    //left house right fence
-    if (this.player.getPosX() >= 310 && this.player.getPosX() <= 530 &&
-    this.player.getPosY() <= 461) {
-      this.player.spawnPos(this.player.getPosX(), 461);
-    }
-    if (this.player.getPosX() >= 304 && this.player.getPosX() <= 400 &&
-    this.player.getPosY() <= 455) {
-      this.player.spawnPos(304, this.player.getPosY());
-    }
-    if (this.player.getPosX() >= 401 && this.player.getPosX() <= 536 &&
-    this.player.getPosY() <= 455) {
-      this.player.spawnPos(536, this.player.getPosY());
-    }
-
-    //right house left fence
-    if (this.player.getPosX() >= 710 && this.player.getPosX() <= 930 &&
-    this.player.getPosY() <= 461) {
-      this.player.spawnPos(this.player.getPosX(), 461);
-    }
-    if (this.player.getPosX() >= 704 && this.player.getPosX() <= 800 &&
-    this.player.getPosY() <= 455) {
-      this.player.spawnPos(704, this.player.getPosY());
-    }
-    if (this.player.getPosX() >= 801 && this.player.getPosX() <= 936 &&
-    this.player.getPosY() <= 455) {
-      this.player.spawnPos(936, this.player.getPosY());
-    }
+    // Right house left fence collision
+    this.handleCollision(710, 930, 0, 461, this.player.getPosX(), 461);
+    this.handleCollision(704, 800, 0, 455, 704, this.player.getPosY());
+    this.handleCollision(801, 936, 0, 455, 936, this.player.getPosY());
   }
 
   /**
